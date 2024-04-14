@@ -1,8 +1,8 @@
 const {exec} = require('child_process');
 const path = require('path');
-const {} = require('@aws-sdk/client-s3');
+const { S3Client } = require('@aws-sdk/client-s3');
 const { mime } = require('mime-types');
-
+const fs = require('fs');
 
 const s3Client = new S3Client({
     region: 'us-east-2',
@@ -11,6 +11,7 @@ const s3Client = new S3Client({
         secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
     }
 });
+
 
 const PROJECT_ID = process.env.PROJECT_ID;
 
@@ -56,5 +57,6 @@ async function init(){
     });
 
 }
+
 
 init();
